@@ -1,0 +1,134 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ANC Portal</title>
+    <link href="{% static 'anc/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
+    <link href="{% static 'anc/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" style="position: fixed;" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            
+                             </span>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold" style="color: #ffffcc;">{{ up.user }}</strong>
+                             </span> <b class="text-muted text-xs block" style="color: #fff;">{{ up.user.first_name }} {{ up.user.last_name }}</b> </span>
+                    </div>
+                    
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to ANC Portal</span>
+                </li>
+                <li>
+                    <a href="{% url 'anc:logout' %}">
+                        <i class="fa fa-sign-out"></i>Logout
+                    </a>
+                </li>
+                
+            </ul>
+
+        </nav>
+        </div>
+            <div class="wrapper wrapper-content">
+                <h2 align="center"> Profile Form </h2>
+                <br>   
+<div class="row">
+            <div class="col-lg-11">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title collaps-link">
+                        <h5>User Details <small></small></h5>
+                    </div>
+                    <div class="ibox-content collapse in" id="one">
+                    <div id="page_1">
+                        <div class= "row">
+			<form method="POST" action = "{% url 'anc:inform' %}">
+			{% csrf_token %}
+                            <div class= "col-sm-5 b-r">
+                                    <div class="form-group">
+                                        <label>Mobile Number</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Mobile Number" required="required"
+                                        type="text" name = "phone" maxlength="10" minlength="10">
+                                    </div>
+                          
+                                       
+                                        </div>
+
+                                   
+                           <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter 6 digit Code</label> <input checked=
+                                        "checked" class="form-control" placeholder="Enter pin" required="required"
+                                        type="password" name = "secret_pin" maxlength="6" minlength="6">
+                                    </div>
+				
+                                    
+                            </div>
+                            </div>
+                            <br>
+                        <div align="right">
+			    
+                            <input type="submit" class="btn btn-primary" id= "one1" value="NEXT">
+
+                        </div>
+			</form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+
+                
+                </div>
+
+
+
+        <div class="footer">
+        <div class="pull-right">
+                <strog style="fon-size:18px;">Developed By Coding Club</strong>
+            </div>
+            <div>
+             ANC Portal &copy; 2016-2017
+            </div>
+        </div>
+        </div>
+
+           
+    <script src="{% static 'anc/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'anc/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'anc/js/inspinia.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/pace/pace.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    
+   </body>
+</html>

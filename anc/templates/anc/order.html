@@ -1,0 +1,270 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ANC Portal</title>
+    <link href="{% static 'anc/css/bootstrap.min.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{% static 'anc/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" style="position: fixed;" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img src="{% static 'anc/img/bitswhite1.png' %}" style="width: 3vw;">
+                             </span>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold" style="color: #ffffcc;">{{ up.user }}</strong>
+                             </span> <b class="text-muted text-xs block" style="color: #fff;">{{ up.user.first_name }} {{ up.user.last_name }}</b> </span>
+                    </div>
+                    <div class="logo-element">
+                        <img src="{% static 'anc/img/bitswhite1.png' %}" style="width: 40px;">
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="{% url 'anc:order' %}"><i class="fa fa-th-large"></i> <span class="nav-label">Order Here</span> </a>
+                </li>
+<li>
+
+                    <a href="{% url 'anc:unbilled' %}"><i class="fa fa-cart-plus"></i> <span class="nav-label">Unbilled Orders</span></a>
+
+                </li>
+                <li>
+
+                    <a href="{% url 'anc:billed' %}"><i class="fa fa-cart-arrow-down"></i> <span class="nav-label">Billed Orders</span></a>
+
+                </li>
+                            
+            </ul>
+
+        </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to ANC Portal</span>
+                </li>
+                <li>
+                    <a href="{% url 'anc:logout' %}">
+                        <i class="fa fa-sign-out"></i>Logout
+                    </a>
+                </li>
+                
+            </ul>
+
+        </nav>
+        </div>
+            <div class="wrapper wrapper-content">
+                <h2 align="center"> Order Form </h2>
+                <br>   
+<div class="row">
+            <div class="col-lg-11">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title collaps-link">
+                        <h5>Menu <small></small></h5>
+                    </div>
+                    <div class="ibox-content collapse in" id="one">
+                    <div id="page_1">
+			<form method="POST" action="{% url 'anc:order' %}">
+			{% csrf_token %}
+                        <div class= "row" id="haircutservice">
+<!-- <p> Do Not Enter Quantity Greater than 5!!</p> -->
+                            <div id="newservice">
+                            <div class= "col-sm-5 b-r">                    
+                                    <div class="form-group">
+                                    <label>Select Item</label> <br>   
+                                            <select class="form-control" id="serv_sel" style="width: 100%;" name="item1" required="required">
+						{% for i in items %}
+						<option value={{i.name}}>{{ i.name }}</option>
+						{% endfor %}
+					    </select>
+                                                
+                                          </div> 
+
+                                        </div>
+                            <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter Quantity</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Quantity" 
+                                        type="text" name="quantity1" id="quantity1" required="required">
+                                    </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+
+                             <div class= "row" id="haircutservice">
+                            <div id="newservice">
+                            <div class= "col-sm-5 b-r">                    
+                                    <div class="form-group">
+                                    <label>Select Item</label> <br>
+                                   	    <select class="form-control" id="serv_sel" style="width: 100%;" name="item2">
+						{% for i in items %}
+						<option value ={{i.name}}>{{ i.name }}</option>
+						{% endfor %}
+					    </select>
+                                                
+                                          </div> 
+
+                                        </div>
+                            <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter Quantity</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Quantity" 
+                                        type="text" name="quantity2" id="quantity2">
+                                    </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+                             <div class= "row" id="haircutservice">
+                            <div id="newservice">
+                            <div class= "col-sm-5 b-r">                    
+                                    <div class="form-group">
+                                    <label>Select Item</label> <br>
+                                            <select class="form-control" id="serv_sel" style="width: 100%;" name="item3">
+						{% for i in items %}
+						<option value ={{i.name}}>{{ i.name }}</option>
+						{% endfor %}
+					    </select>
+                                                
+                                          </div> 
+
+                                        </div>
+                            <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter Quantity</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Quantity"
+                                        type="text" name="quantity3" id="quantity3">
+                                    </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+                             <div class= "row" id="haircutservice">
+                            <div id="newservice">
+                            <div class= "col-sm-5 b-r">                    
+                                    <div class="form-group">
+                                    <label>Select Item</label> <br>
+                                    	    <select class="form-control" id="serv_sel" style="width: 100%;" name="item4">
+						{% for i in items %}
+						<option value ={{i.name}}>{{ i.name }}</option>
+						{% endfor %}
+					    </select>
+                                                
+                                          </div> 
+
+                                        </div>
+                            <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter Quantity</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Quantity" 
+                                        type="text" name="quantity4" id="quantity4">
+                                    </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+                             <div class= "row" id="haircutservice">
+                            <div id="newservice">
+                            <div class= "col-sm-5 b-r">                    
+                                    <div class="form-group">
+                                    <label>Select Item</label> <br>
+                                   	    <select class="form-control" id="serv_sel" style="width: 100%;" name="item5">
+						{% for i in items %}
+						<option value ={{i.name}}>{{ i.name }}</option>
+						{% endfor %}
+					    </select>
+                                                
+                                          </div> 
+
+                                        </div>
+                            <div class="col-sm-6">
+                                     <div class="form-group">
+                                        <label>Enter Quantity</label> <input checked=
+                                        "checked" class="form-control"
+                                        placeholder="Enter Quantity"
+                                        type="text" name="quantity5" id="quantity5">
+                                    </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+                            <br>
+
+<div class="alert alert-warning" id="error1">
+    <strong>Warning!</strong> This alert box could indicate a warning that might need attention.
+  </div>
+
+<br>
+                        <div align="right">
+                            <input type="submit" value="submit" class="btn btn-primary" id= "one1" onclick="myFunction()">
+						</div>
+			</form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                
+                </div>
+
+
+
+        <div class="footer">
+        <div class="pull-right">
+                <strog style="fon-size:18px;">Developed By Coding Club</strong>
+            </div>
+            <div>
+             ANC Portal &copy; 2016-2017
+            </div>
+        </div>
+        </div>
+
+    <script src="{% static 'anc/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'anc/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'anc/js/inspinia.js' %}"></script>
+    <script src="{% static 'anc/js/plugins/pace/pace.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <script>
+$('#error1').css('display','none');
+function myFunction() {
+var x=0;
+var y=5;
+var f1= document.getElementById("quantity1").id;
+var f2= document.getElementById("quantity2").id;
+var f3= document.getElementById("quantity3").id;
+var f4= document.getElementById("quantity4").id;
+var f5= document.getElementById("quantity5").id;
+var f6 = f1+f2+f3+f4+f5;
+if (f6 < 0 || f6 > 5) {
+	$('#error1').css('display','block');
+}
+else{ $('#error1').css('display','none');}
+}
+</script>
+   </body>
+</html>

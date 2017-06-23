@@ -1,0 +1,52 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Print Order</title>
+
+    <link href="{% static 'anc/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'anc/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<h1 align="center" style="padding-top: 90px; font-size: 80px;"> Print Order</h1>
+ 
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        
+            <form class="m-t" role="form"  method="POST" action="{% url 'anc:print_order' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Redference Number" required="" maxlength="6" minlength="6" name="ref_no">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="6-Digit Pin" required="" maxlength="6" minlength="6" name="secret_pin">
+                </div>
+                <input type="submit" class="btn btn-primary block full-width m-b">Print</button>
+
+                
+            </form>
+            </div>
+<div class="footer">
+            <div class="pull-right">
+                Developed By Coding Club
+            </div>
+            <div>
+                <strong>Copyright</strong> ANC Portal &copy; 2017-2018
+            </div>
+        </div>
+    <!-- Mainly scripts -->
+    <script src="{% static 'anc/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'anc/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

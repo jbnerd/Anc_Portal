@@ -1,0 +1,154 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>ANC Portal</title>
+
+    <link href="{% static 'anc/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css">
+
+    <link href="{% static 'anc/css/animate.css' %}" rel="stylesheet">
+
+    <link href="{% static 'anc/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+    <div id="wrapper">
+
+        <div id="page-wrapper" class="gray-bg">
+
+       
+            <div class="wrapper wrapper-content">
+
+                <h2 align="center"> Thankyou!! </h2>
+
+                <br> 
+    <table class="table">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Item Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+    {% if not order.item1 == None %}
+        <tr>
+            <td>1</td>
+            <td>{{ order.item1 }}</td>
+            {% if order.quantity1 != None %}
+            <td>{{ order.quantity1 }}</td>
+            {% endif %}
+            <td>{{ order.item1.price }}</td>
+        </tr>
+        <!--<p>{{ order.item1 }}</p>-->
+    {% endif %}<br>
+
+    {% if not order.item2 == None %}
+    <tr>
+            <td>2</td>
+            <td>{{ order.item2 }}</td>
+            {% if order.quantity2 != None %}
+            <td>{{ order.quantity2 }}</td>
+            {% endif %}
+            <td>{{ order.item2.price }}</td>
+        </tr>
+        <!--<p>{{ order.item2 }}</p>-->
+    {% endif %}<br>
+
+    {% if not order.item3 == None %}
+    <tr>
+            <td>3</td>
+            <td>{{ order.item3 }}</td>
+            {% if order.quantity3 != None %}
+            <td>{{ order.quantity3 }}</td>
+            {% endif %}
+            <td>{{ order.item3.price }}</td>
+        </tr>
+        <!--{{ order.item3 }}-->
+    {% endif %}<br>
+
+    {% if not order.item4 == None %}
+    <tr>
+            <td>4</td>
+            <td>{{ order.item4 }}</td>
+            {% if order.quantity4 != None %}
+            <td>{{ order.quantity4 }}</td>
+            {% endif %}
+            <td>{{ order.item4.price }}</td>
+        </tr>
+        <!--{{ order.item4 }}-->
+    {% endif %}<br>
+
+    {% if not order.item5 == None %}
+    <tr>
+            <td>5</td>
+            <td>{{ order.item5 }}</td>
+            {% if order.quantity5 != None %}
+            <td>{{ order.quantity5 }}</td>
+            {% endif %}
+            <td>{{ order.item5.price }}</td>
+        </tr>
+        <!--{{ order.item5 }}-->
+    {% endif %}<br>
+    <tr colspan="4">
+            <td><b style="font-size: 15px;">Total : {{ order.total }}</b></td>
+            
+        </tr>
+
+</tbody>
+</table>
+
+    <p>Use your personal pin along with this reference number at the ANC portal to get the order receipt</p>
+
+    <p>You'll be charged for this order once you print the receipt from ANC</p>
+
+    <p>P.S. This is an automated email service. Any replies to this email are NOT monitored. <br>
+For any technical queries please contact <a href="https://www.facebook.com/codingclubpilani">Coding Club BITS, Pilani.</a></p>
+</div>
+</div>
+
+
+</div>
+           
+
+    <script src="{% static 'anc/js/jquery-2.1.1.js' %}"></script>
+
+    <script src="{% static 'anc/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'anc/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+
+    <script src="{% static 'anc/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <script src="{% static 'anc/js/inspinia.js' %}"></script>
+
+    <script src="{% static 'anc/js/plugins/pace/pace.min.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+    
+</body>
+</html>

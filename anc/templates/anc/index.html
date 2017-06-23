@@ -1,0 +1,47 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANC Portal | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{% static 'anc/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'anc/css/style.css' %}" rel="stylesheet">
+	
+</head>
+
+<body class="gray-bg">
+
+
+    <div class="middle-box text-center animated fadeInDown" style="padding-top:9%;">
+        <p style="font-size:60px;">ANC Portal</p>
+        <h3 class="font-bold">Prateek Bothra Initiative</h3>
+<br>
+
+        <div class="error-desc">
+		<a href = "https://ancportal.herokuapp.com/soc/login/google-oauth2/?next=/login/">
+		<button type="submit" class="btn btn-outline btn-danger" style="margin-left:-20px;"><span style="font-size:20px;"><i class="fa fa-google-plus"> </i> Login Using Gmail</span></button></a>
+<br> <br> <br><b style="font-size: 20px;">Login using BITS Mail ONLY!!</b>
+           <div align="center"><img src="{% static 'anc/img/bitswhite.png' %}" style="width: 18vw; padding-top: 15px;"></div>
+        </div>
+    </div>
+	<div class="footer">
+            <div class="pull-right">
+                <strog style="fon-size:18px;">Developed By Coding Club</strong>
+            </div>
+            <div>
+                <strong></strong> ANC Portal &copy; 2016-2017
+            </div>
+        </div>
+
+        </div>
+    <script src="{% static 'anc/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'anc/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
